@@ -1,0 +1,25 @@
+{
+  "name": "sliding-window-counter",
+  "version": "0.0.1",
+  "description": "sliding window counter",
+  "keywords": [
+    "sliding",
+    "window",
+    "counter",
+    "stream"
+  ],
+  "author": "mrhooray <code@mrhooray.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/mrhooray/sliding-window-counter",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mrhooray/sliding-window-counter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mrhooray/sliding-window-counter/issues"
+  },
+  "license": "MIT"
+}
