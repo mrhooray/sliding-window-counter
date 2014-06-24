@@ -1,1 +1,4 @@
-# sliding window counter
+# sliding-window-counter
+
+## License
+MIT
