@@ -11,7 +11,12 @@
   "author": "mrhooray <code@mrhooray.com>",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.2",
+    "gulp-jshint": "^1.6.3",
+    "gulp-mocha": "^0.4.1"
   },
   "homepage": "https://github.com/mrhooray/sliding-window-counter",
   "repository": {

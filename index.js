@@ -1,3 +1,5 @@
+'use strict';
+
 var Window = function (keys) {
   var self = this;
 
@@ -11,30 +13,30 @@ var SlidingWindowCounter = function (opts) {
 
   opts = opts || {};
   opts.timeInMs = opts.timeInMs || 10 * 1000;
-  opts.numBuckets = opts.numBuckets || 10;
+  opts.numWindows = opts.numWindows || 10;
   opts.keys = opts.keys || ['success', 'failure', 'timeout'];
 
-  if (opts.timeInMs % opts.numBuckets !== 0) {
-    throw new Error('timeInMs % numBuckets should equal to 0');
-  } else if (opts.timeInMs < 0 || opts.numBuckets < 0 || !Array.isArray(opts.keys)) {
+  if (opts.timeInMs % opts.numWindows !== 0) {
+    throw new Error('timeInMs % numWindows should equal to 0');
+  } else if (opts.timeInMs < 0 || opts.numWindows < 0 || !Array.isArray(opts.keys)) {
     throw new Error('invalid options');
   } else if (opts.keys.indexOf('stats') > 0) {
     throw new Error('stats is a reserved key to retrieve rolling stats');
   }
 
-  self.numBuckets = opts.numBuckets;
-  self.interval = opts.timeInMs / opts.numBuckets;
+  self.numWindows = opts.numWindows;
+  self.interval = opts.timeInMs / opts.numWindows;
   self.keys = opts.keys;
   self.currIndex = 0;
   self.windows = [];
 
-  while (opts.numBuckets > 0) {
+  while (opts.numWindows > 0) {
     self.windows.push(new Window(self.keys));
-    opts.numBuckets--;
+    opts.numWindows--;
   }
 
   setInterval(function () {
-    self.currIndex = (self.currIndex + 1) % self.numBuckets;
+    self.currIndex = (self.currIndex + 1) % self.numWindows;
     self.windows[self.currIndex] = new Window(self.keys);
   }, self.interval);
 

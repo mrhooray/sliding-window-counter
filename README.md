@@ -4,7 +4,7 @@
 ```javascript
 var counter = new SlidingWindowCounter({
   timeInMs: 10 * 1000,
-  numBuckets: 10,
+  numWindows: 10,
   keys: ['success', 'timeout']
 });
 
