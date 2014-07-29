@@ -2,22 +2,24 @@
 
 ## Usage
 ```javascript
-var counter = new SlidingWindowCounter({
-  timeInMs: 10 * 1000,
-  numWindows: 10,
+var SlidingWindowCounter = require('js-sliding-window-counter');
+
+var swc = new SlidingWindowCounter({
+  windowInMs: 10 * 1000,
+  numBuckets: 10,
   keys: ['success', 'timeout']
 });
 
 setInterval(function () {
-  counter.success();
+  swc.success(5);
 }, 200);
 
 setInterval(function () {
-  counter.timeout();
+  swc.timeout();
 }, 1000);
 
 setInterval(function () {
-  console.log(counter.stats());
+  console.log(swc.stats());
 }, 1000);
 ```
 
