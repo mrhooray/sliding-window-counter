@@ -1,7 +1,7 @@
 {
   "name": "js-sliding-window-counter",
   "version": "0.0.1",
-  "description": "sliding window counter",
+  "description": "Sliding Window Counter for JavaScript",
   "keywords": [
     "sliding",
     "window",
